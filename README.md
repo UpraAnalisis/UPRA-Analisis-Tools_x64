@@ -1,5 +1,4 @@
-# UPRA-Analisis-Tools_x64
-AddIn de ArcGIS Que contiene utilidades para el análisis de información - REQUIERE Background Geoprocessing (64-bit)
+# MultiCortes AddIn
 
 Es una herramienta del tipo AddIn que se incorpora a ArcGIS y permite realizar el corte de múltiples capas con respecto a una o varias zonas de interés o moldes y obtener las estadísticas de área de acuerdo con un campo definido. Esta herramienta se desarrolló con el fin de agilizar el proceso de generación de resultados de los geoprocesos adelantados por los profesionales del grupo de análisis, para dar cumplimiento al objeto misisonal de la  [UPRA](http://www.upra.gov.co).
 
@@ -29,35 +28,42 @@ Ingresar a la versión de arcgis en la que se quiera instalar el AddIn y pegar e
 ## Configuración
 
 Si al iniciar ArcMap no encuentra el addin debe configurar su visualización dentro de la barra de herramientas. Para ello haga clic derecho sobre la barra de herramientas y seleccione la opción customize. AL hacerlo se mostrará el menú mostrado en la siguiente imágen en donde debe seleccionar la barra de herramientas Upra_Análisis_Tools.
-(/img/activar_menu.png)
+
+![Dataframes](/img/activar_menu.png)
 
 ## Uso
 ### Configurar el mxd
 1. Construir tres dataframes con la estructura mostrada en la siguiente imágen:
- (/img/dataframes.PNG)
+
+![Dataframes](/img/dataframes.PNG)
+ 
 Recuerde mantener pausada la visualización para mejorar el rendimiento y la estabiidad del addin.
 
 ### Cargar Capas Necesarias
 
 1. Las capas necesarias para la operación de este addin son de dos (2) tipos y deben estar separadas en diferentes dataframes de la siguiente forma: 
+
 moldes: Este dataframe contiene las capas con las cuales se realizarán los cortes.
+
 capas: Este dataframe contiene las capas que serán cortadas y sobre las cuales se realizarán las estadísticas.
 
-2. Si se va a realizar un corte con estadísticas o una extracción por campo con estadísticas, deben configurarse para cada capa los campos sobre los cuales se van a sacar las estadísticas. Para ello se escribirán dos guiones al final del nombre de cada capa, seguidos del nombre del campo con el cual se van a hacer las estadísticas. A continuación una imagen que representa lo anteriormente mencionado.
-(/img/confi_nombres.png
+2. Si se desea obetener estadísticas a partir de las capas, deben configurarse para cada capa los campos sobre los cuales se van a procesar. Para ello se escribirán dos guiones al final del nombre de cada capa, seguidos del nombre del campo con el cual se van a hacer las estadísticas. A continuación una imagen que representa lo anteriormente mencionado.
+
+![Dataframes](/img/confi_nombres.png) 
+
+### Procesar los Cortes Multiples
+
+1. Lo primero que hay que seleccionar es la ruta del folder donde se almacenarán los datos del proceso.
+
 
 
 ### Selección criterio
 
 1. Contruir tres dataframes con la estrutura mostrada en la siguiente imágen:
 
-  
+![Select Herramienta](/img/selherr.PNG)
 
-2. .
-
-    ![Select Herramienta](/img/selherr.PNG)
-
-3. Dar Click en el punto de interés que se desea consultar 
+2. Dar Click en el punto de interés que se desea consultar 
 
     ![Dataframes](/img/dataframes.PNG)
 
