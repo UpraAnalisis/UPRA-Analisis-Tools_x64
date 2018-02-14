@@ -33,3 +33,6 @@ se agregaron nuevas funcionalidades,en un menú adicional
 
 ##----------09/02/2018--------------------------------
 se arreglaron los invonvenientes con las ventanas y arcgis 10.5
+
+##----------14/02/2018--------------------------------
+se solucionaron los problemas de localización del python de 64 en arcgis 10.5.1

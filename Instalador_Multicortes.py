@@ -4,7 +4,7 @@
 import os, sys,subprocess,inspect, time ,exceptions,shutil, arcpy
 # ------------------------------------------------------------
 try:
-    #=========Funciones Auxiliares=====================#
+#=========Funciones Auxiliares=====================#
     def getPythonPath():
         pydir = sys.exec_prefix
         pyexe = os.path.join(pydir, "python.exe")
@@ -35,7 +35,7 @@ try:
     ruta = os.getcwd() + os.sep
     ruta_lectura=directorio+"\\lista_archivos.txt"
     home =os.path.expanduser("~")
-    ruta_copia=home+"\\"+"Documents\ArcGIS\AddIns\Desktop"+str(arcpy.GetInstallInfo()['Version'])
+    ruta_copia=home+"\\"+"Documents\ArcGIS\AddIns\Desktop"+str(arcpy.GetInstallInfo()['Version']).replace(".1","")
 
 
 
