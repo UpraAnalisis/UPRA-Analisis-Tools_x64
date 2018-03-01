@@ -714,16 +714,6 @@ class ButtonMulticortes(object):
                         if tipo_corte==0:
                             moldex=arcpy.Describe(molde).catalogpath.encode("utf8")
                             capax=arcpy.Describe(capa).catalogpath.encode("utf8")
-                            print moldex,capax,rfinal.encode("utf8"),nombre_tabla.encode("utf8")
-##                            ruta_trabajo= r"X:\BORRAR"
-##                            text_file = open("%s//Log_ejecucion.txt"%(ruta_trabajo), "w")
-##                            text_file.write("%s \n"%(verPython64))
-##                            text_file.write("%s \n"%(script_clip))
-##                            text_file.write("%s \n"%(capax))
-##                            text_file.write("%s \n"%(moldex))
-##                            text_file.write("%s \n"%(rfinal.encode("utf8")))
-##                            text_file.write("%s \n"%(nombre_tabla.encode("utf8")))
-##                            text_file.close()
                             comando=r"start %s %s %s %s %s %s"%(verPython64,script_clip,capax,moldex,rfinal.encode("utf8"),nombre_tabla.encode("utf8"))
                             aa=subprocess.Popen(comando,stdin=None,stdout=subprocess.PIPE,shell=True,env=dict(os.environ, PYTHONHOME=verPythonDir))
                             astdout, astderr = aa.communicate()
@@ -732,20 +722,10 @@ class ButtonMulticortes(object):
 
 
                         elif tipo_corte==1:
-##                                arcpy.Identity_analysis(molde,capa,rfinal+"\\"+nombre_tabla)
                             moldex=arcpy.Describe(molde).catalogpath.encode("utf8")
                             capax=arcpy.Describe(capa).catalogpath.encode("utf8")
-                            print moldex,capax,rfinal.encode("utf8"),nombre_tabla.encode("utf8")
                             comando=r"start %s %s %s %s %s %s %s"%(verPython64,script_identity,moldex,capax,"ALL",rfinal.encode("utf8"),nombre_tabla.encode("utf8"))
-##                            ruta_trabajo= r"X:\BORRAR"
-##                            text_file = open("%s//Log_ejecucion.txt"%(ruta_trabajo), "w")
-##                            text_file.write("%s \n"%(verPython64))
-##                            text_file.write("%s \n"%(script_identity))
-##                            text_file.write("%s \n"%(capax))
-##                            text_file.write("%s \n"%(moldex))
-##                            text_file.write("%s \n"%(rfinal.encode("utf8")))
-##                            text_file.write("%s \n"%(nombre_tabla.encode("utf8")))
-##                            text_file.close()
+
                             ff=subprocess.Popen(comando,stdin=None,stdout=subprocess.PIPE,shell=True,env=dict(os.environ, PYTHONHOME=verPythonDir))
                             astdout, astderr = ff.communicate()
                             arcpy.MakeFeatureLayer_management(rfinal+"\\"+nombre_tabla,nombre_tabla+"_"+molde.name)
