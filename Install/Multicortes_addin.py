@@ -553,7 +553,19 @@ def mExport():
     minutes, seconds = divmod(rem, 60)
     print("proceso Completado en {:0>2} H {:0>2} M {:05.2f} S.".format(int(hours),int(minutes),seconds))
 
-
+def multiQuery():
+    expresion = easygui.textbox(msg="Escriba el query",title="Definicion de Query")
+    mxd = arcpy.mapping.MapDocument("CURRENT")
+    layers = pythonaddins.GetSelectedTOCLayerOrDataFrame()
+    if len(layers) >1:
+        for lyr in layers:
+            lyr.definitionQuery = expresion
+    elif len(layers) ==1:
+        layers.definitionQuery = expresion
+    else:
+        print "######### SELECCIONE UN LAYER EN EL DATAFRAME ACTIVO"########
+    arcpy.RefreshActiveView
+    arcpy.RefreshTOC()
 
 
 class ButtonArea(object):
@@ -578,8 +590,6 @@ class ButtonArea(object):
             print" ###### Seleccione por lo menos una capa en el dataframe activo ######"
 
 
-
-
 class ButtonCoordenadas(object):
     """Implementation for UpraToolBar_Coordenadas.button (Button)"""
     def __init__(self):
@@ -600,7 +610,6 @@ class ButtonCoordenadas(object):
                     print "###### Seleccione por lo menos una capa en el dataframe activo ######"
         else:
             print "###### Seleccione por lo menos una capa en el dataframe activo ######"
-
 
 
 class ButtonEstadisticas(object):
@@ -700,16 +709,12 @@ class ButtonMulticortes(object):
                 for capa in lista_capas:
                     dialog.description = "Procesando." + str(molde.name.encode("utf8")) +'\n' +str(capa.name.encode("utf8"))
                     temparr=capa.name.split("--")
-
                     if len(temparr)!=1:
                         arreglo_nombre=capa.name.split("--")
                         nombre_tabla=arreglo_nombre[0]
                         campo_estadisticas=arreglo_nombre[1]
                     else:
                         nombre_tabla=capa.name
-
-
-
                     if tipo_analisis!=3:
                         if tipo_corte==0:
                             moldex=arcpy.Describe(molde).catalogpath.encode("utf8")
@@ -718,9 +723,6 @@ class ButtonMulticortes(object):
                             aa=subprocess.Popen(comando,stdin=None,stdout=subprocess.PIPE,shell=True,env=dict(os.environ, PYTHONHOME=verPythonDir))
                             astdout, astderr = aa.communicate()
                             arcpy.MakeFeatureLayer_management(rfinal+"\\"+nombre_tabla,nombre_tabla+"_"+molde.name)
-
-
-
                         elif tipo_corte==1:
                             moldex=arcpy.Describe(molde).catalogpath.encode("utf8")
                             capax=arcpy.Describe(capa).catalogpath.encode("utf8")
@@ -796,16 +798,12 @@ class ButtonMulticortes(object):
                                     cursorAux = arcpy.SearchCursor("%s"%(tabla_cursor)," %s = '"%(campo_estadisticas)+k+"'",fields ="SUM_Shape_Area")
                                 except:
                                     cursorAux = arcpy.SearchCursor("%s"%(tabla_cursor)," %s = '"%(campo_estadisticas_tentativo)+k+"'",fields ="SUM_Shape_Area")
-
                         except:
                                 tabla_cursor=rfinal+"\\"+nombre_tabla
                                 try:
                                     cursorAux = arcpy.SearchCursor("%s"%(tabla_cursor)," %s = "%(campo_estadisticas)+str(k),fields ="SUM_Shape_Area")
                                 except:
                                     cursorAux = arcpy.SearchCursor("%s"%(tabla_cursor)," %s = "%(campo_estadisticas_tentativo)+str(k),fields ="SUM_Shape_Area")
-
-
-
                         for f in cursorAux:
                         		aSumatorias.append(f.getValue("SUM_Shape_Area"))
                         suma = sum(aSumatorias)
@@ -831,15 +829,14 @@ class ButtonMulticortes(object):
                         arcpy.TableToExcel_conversion("%s//%s"%(rfinal,nombre_tabla), "%s//%s.xls"%(ruta_excel_temp,nombre_tabla))
                         if dialog.cancelled:
                             raise Exception("Error, Verifique sus datos")
-
                 incremento+=incremento
                 dialog.progress += incremento
                 if tipo_analisis!=2:
                     fusion(ruta_excel_temp,ruta_excel_temp.split("\\")[-1])
                     grafica(ruta_excel_temp+"\\"+ruta_excel_temp.split("\\")[-1]+".xls")
-
         else:
             pass # Fin de la ejecución el usuario finalizó la ejecución.
+
 
 class ButtonRuta(object):
     """Implementation for UpraToolBar_Ruta.button (Button)"""
@@ -861,6 +858,7 @@ class ButtonRuta(object):
                     print "###### Seleccione por lo menos una capa en el dataframe activo ######"
         else:
             print "###### Seleccione por lo menos una capa en el dataframe activo ######"
+            
 
 class ButtonToExcel(object):
     """Implementation for UpraToolBar_ToExcel.button (Button)"""
@@ -877,3 +875,11 @@ class ButtonToPowerpoint(object):
         self.checked = False
     def onClick(self):
         mExport()
+
+class ButtonMultiQuery(object):
+    """Implementation for UpraToolBar_MultiQuery.button (Button)"""
+    def __init__(self):
+        self.enabled = True
+        self.checked = False
+    def onClick(self):
+        multiQuery()
