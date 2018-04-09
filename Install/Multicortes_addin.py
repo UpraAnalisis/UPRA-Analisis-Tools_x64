@@ -1,6 +1,7 @@
 #-*- coding: utf-8 -*-
 import arcpy
 import pythonaddins
+import sys
 import os,xlwt,xlrd
 from xlrd import open_workbook
 import arcgisscripting as script_tools
@@ -26,7 +27,16 @@ from pptx.dml.color import RGBColor
 from pptx.enum.text import PP_ALIGN
 from pptx.enum.shapes import MSO_SHAPE
 from pptx.enum.lang import MSO_LANGUAGE_ID
-arcpy.env.outputCoordinateSystem = arcpy.SpatialReference("MAGNA Colombia Bogota")
+
+
+
+reload(sys) # cargue la codificación utf8
+sys.setdefaultencoding('UTF8')
+
+dic_acentos={" ":"---","\xc3\xa1":"***a***","\xc3\xa9":"***e***",
+"\xc3\xad":"***i***", "\xc3\xb3": "***o***","\xc3\xba": "***u***",
+"\xc3\xb1": "***n***","\xc3\x81":"***A***","\xc3\x89":"***E***",
+"\xc3\x8d":"***I***", "\xc3\x93": "***O***","***\xc3\x9a***":"Ú","\xc3\x91": "***N***"}
 
 import Tkinter, Tkconstants, tkFileDialog
 from Tkinter import *
@@ -47,6 +57,11 @@ def directorioyArchivo ():
     archivo=inspect.getfile(inspect.currentframe()) # script filename
     directorio=os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))) # script directory
     return archivo, directorio
+
+def cambia_caracteres(infea):
+    for xx in dic_acentos:# ciclo que reemplaza las letras por los carateres especiales
+        infea=infea.replace(xx,dic_acentos[xx])
+    return infea
 
 # ------------------------------------------------------------
 
@@ -70,9 +85,8 @@ verPython32=verPython64.replace("x64","")
 verPythonDir=verPython64.replace("\\python.exe","")
 verPythonDir_32 =verPythonDir.replace("x64","")
 ArcVersion=verPythonDir_32.replace("C:\Python27\ArcGIS","")
-##archivo, directorio = directorioyArchivo()
 home =os.path.expanduser("~")
-directorio=home+"\\"+"Documents\ArcGIS\AddIns\Desktop"+str(arcpy.GetInstallInfo()['Version']).replace(".1","")
+directorio=home+"\\"+"Documents\ArcGIS\AddIns\Desktop"+str(arcpy.GetInstallInfo()['Version'])[:4]
 directorio_raiz = directorio
 script_clip=directorio+"\\clipx64_aux.py"
 script_identity=directorio+"\\identityx64_aux.py"
@@ -176,6 +190,7 @@ def grafica(f):
                 a1 = int(s.cell_value(rowx=i, colx=1))
                 worksheet.write(i, 6, values[a1])
                 worksheet.insert_chart('H1', chart)
+                del chart
             except:
                 continue
     workbook.close()
@@ -567,6 +582,29 @@ def multiQuery():
     arcpy.RefreshActiveView
     arcpy.RefreshTOC()
 
+def multiExport():
+    formatoSalida =  easygui.choicebox("Seleccione formato de Salida","Formato",["FeatureClass","Tabla"])
+    try:
+        ruta_salida = r'' + easygui.diropenbox("Caperta/GDB de Salida","Archivos de Salida",".")
+    except:
+        ruta_salida =r'' + askdirectory (title="Caperta/GDB de Salida",initialdir=".")
+    lista_capas = pythonaddins.GetSelectedTOCLayerOrDataFrame()
+    if lista_capas is not None and lista_capas != []:
+        if type(lista_capas)!= list:
+            arr =[]
+            arr.append(lista_capas)
+            lista_capas=arr
+            for capa in lista_capas:
+                if formatoSalida =="FeatureClass":
+                    arcpy.FeatureClassToFeatureClass_conversion(capa,ruta_salida,capa.name)
+                else:
+                    arcpy.CopyRows_management(capa,os.path.join(ruta_salida,capa.name))
+        else:
+            for capa in lista_capas:
+                if formatoSalida =="FeatureClass":
+                    arcpy.FeatureClassToFeatureClass_conversion(capa,ruta_salida,capa.name)
+                else:
+                    arcpy.CopyRows_management(capa,os.path.join(ruta_salida,capa.name))
 
 class ButtonArea(object):
     """Implementation for UpraToolBar_InfoCapas.button (Button)"""
@@ -679,7 +717,6 @@ class ButtonMulticortes(object):
             ejecucion=easygui.ynbox('¿Desea Continuar con la Ejecución?', 'Seguir?', ('Sí', 'No'))
 ################################## MENU DE EJECUCION ##########################################################################
         if ejecucion:
-            arcpy.env.outputCoordinateSystem = arcpy.SpatialReference(3116)
             doc=arcpy.mapping.MapDocument("CURRENT")
             df_molde=arcpy.mapping.ListDataFrames(doc,"*molde")
             df_capas=arcpy.mapping.ListDataFrames(doc,"*capas")
@@ -717,17 +754,26 @@ class ButtonMulticortes(object):
                         nombre_tabla=capa.name
                     if tipo_analisis!=3:
                         if tipo_corte==0:
-                            moldex=arcpy.Describe(molde).catalogpath.encode("utf8")
-                            capax=arcpy.Describe(capa).catalogpath.encode("utf8")
-                            comando=r"start %s %s %s %s %s %s"%(verPython64,script_clip,capax,moldex,rfinal.encode("utf8"),nombre_tabla.encode("utf8"))
+                            moldex = arcpy.Describe(molde).catalogpath.encode("utf8")
+                            capax = arcpy.Describe(capa).catalogpath.encode("utf8")
+                            nombre_tabla = nombre_tabla.encode("utf8")
+                            moldex1 = cambia_caracteres(moldex)
+                            capax1 = cambia_caracteres(capax)
+                            rfinal1 = cambia_caracteres(rfinal.encode("utf8"))
+                            nombre_tabla1 = cambia_caracteres(nombre_tabla)
+                            comando=r"start %s %s %s %s %s %s"%(verPython64,script_clip,capax1,moldex1,rfinal1,nombre_tabla1)
                             aa=subprocess.Popen(comando,stdin=None,stdout=subprocess.PIPE,shell=True,env=dict(os.environ, PYTHONHOME=verPythonDir))
                             astdout, astderr = aa.communicate()
                             arcpy.MakeFeatureLayer_management(rfinal+"\\"+nombre_tabla,nombre_tabla+"_"+molde.name)
                         elif tipo_corte==1:
-                            moldex=arcpy.Describe(molde).catalogpath.encode("utf8")
-                            capax=arcpy.Describe(capa).catalogpath.encode("utf8")
-                            comando=r"start %s %s %s %s %s %s %s"%(verPython64,script_identity,moldex,capax,"ALL",rfinal.encode("utf8"),nombre_tabla.encode("utf8"))
-
+                            moldex = arcpy.Describe(molde).catalogpath.encode("utf8")
+                            capax = arcpy.Describe(capa).catalogpath.encode("utf8")
+                            nombre_tabla = nombre_tabla.encode("utf8")
+                            moldex1 = cambia_caracteres(moldex)
+                            capax1 = cambia_caracteres(capax)
+                            rfinal1 = cambia_caracteres(rfinal.encode("utf8"))
+                            nombre_tabla1 = cambia_caracteres(nombre_tabla)
+                            comando=r"start %s %s %s %s %s %s %s"%(verPython64,script_identity,capax1,moldex1,"ALL",rfinal1,nombre_tabla1)
                             ff=subprocess.Popen(comando,stdin=None,stdout=subprocess.PIPE,shell=True,env=dict(os.environ, PYTHONHOME=verPythonDir))
                             astdout, astderr = ff.communicate()
                             arcpy.MakeFeatureLayer_management(rfinal+"\\"+nombre_tabla,nombre_tabla+"_"+molde.name)
@@ -858,7 +904,7 @@ class ButtonRuta(object):
                     print "###### Seleccione por lo menos una capa en el dataframe activo ######"
         else:
             print "###### Seleccione por lo menos una capa en el dataframe activo ######"
-            
+
 
 class ButtonToExcel(object):
     """Implementation for UpraToolBar_ToExcel.button (Button)"""
@@ -882,4 +928,50 @@ class ButtonMultiQuery(object):
         self.enabled = True
         self.checked = False
     def onClick(self):
-        multiQuery()
+        capas=pythonaddins.GetSelectedTOCLayerOrDataFrame()
+        if capas is not None:
+            if type(capas)!= list:
+                arr =[]
+                arr.append(capas)
+                capas=arr
+                multiQuery()
+            else:
+                if len(capas)>=1:
+                     multiQuery()
+                else:
+                    print "###### Seleccione por lo menos una capa en el dataframe activo ######"
+        else:
+            print "###### Seleccione por lo menos una capa en el dataframe activo ######"
+
+
+class ButtonMultiExport(object):
+    """Implementation for UpraToolBar_MultiExport.button (Button)"""
+    def __init__(self):
+        self.enabled = True
+        self.checked = False
+    def onClick(self):
+        capas=pythonaddins.GetSelectedTOCLayerOrDataFrame()
+        if capas is not None:
+            if type(capas)!= list:
+                arr =[]
+                arr.append(capas)
+                capas=arr
+                multiExport()
+            else:
+                if len(capas)>=1:
+                     multiExport()
+                else:
+                    print "###### Seleccione por lo menos una capa en el dataframe activo ######"
+        else:
+            print "###### Seleccione por lo menos una capa en el dataframe activo ######"
+        del capas
+
+
+class HelpButton(object):
+    """Implementation for UpraToolBar_addin.button (Button)"""
+    def __init__(self):
+        self.enabled = True
+        self.checked = False
+    def onClick(self):
+        global subprocess
+        subprocess.Popen("start chrome /new-tab https://github.com/UpraAnalisis/UPRA-Analisis-Tools_x64#upra-analisis-tools-x64",shell = True)
