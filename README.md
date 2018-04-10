@@ -1,5 +1,7 @@
 # UPRA Analisis Tools x64
 
+![Logo_Upra_Analisis](/Images/Logo_Upra_Analisis_Tools.png)
+
 Es una funcionalidad del tipo Add-in (o extensión) que se incorpora a ArcGIS y permite realizar diversas operaciones orientadas a agilizar el proceso de generación de resultados de los geoprocesos adelantados por los profesionales del grupo de análisis, para dar cumplimiento al objeto misional de la [UPRA]. Estas herrramientas se dividen en dos grandes grupos: 
 ### Herramientas para presentaciones
 Herramientas que preparan de forma másiva los insumos para construir presentaciones con la información resultante de los geoprocesos.
