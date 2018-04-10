@@ -1,7 +1,7 @@
 # UPRA Analisis Tools x64
 
+<center><img src="/Images/Logo_Upra_Analisis_Tools.png" ...></center>
 
-  ![Logo_Upra_Analisis](/Images/Logo_Upra_Analisis_Tools.png?style=centerme)
 
 
 
