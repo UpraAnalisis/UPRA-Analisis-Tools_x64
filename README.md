@@ -1,6 +1,16 @@
-# MultiCortes AddIn
+# UPRA Analisis Tools x64
 
-Es una herramienta del tipo AddIn que se incorpora a ArcGIS y permite realizar el corte de múltiples capas con respecto a una o varias zonas de interés o moldes y obtener las estadísticas de área de acuerdo con un campo definido. Esta herramienta se desarrolló con el fin de agilizar el proceso de generación de resultados de los geoprocesos adelantados por los profesionales del grupo de análisis, para dar cumplimiento al objeto misisonal de la  [UPRA](http://www.upra.gov.co).
+Es una funcionalidad del tipo Add-in (o extensión) que se incorpora a ArcGIS y permite realizar diversas operaciones orientadas a agilizar el proceso de generación de resultados de los geoprocesos adelantados por los profesionales del grupo de análisis, para dar cumplimiento al objeto misional de la [UPRA]. Estas herrramientas se dividen en dos grandes grupos: 
+### Herramientas para presentaciones
+Herramientas que preparan de forma másiva los insumos para construir presentaciones con la información resultante de los geoprocesos.
+### Herramientas para manipular layers 
+Herramientas que permiten consultar, filtrar y exportar de forma masiva las capas y tablas cargadas en un mxd.
+
+
+
+
+
+a optimizar los tiempos de ejecución de los análisis realizados por el grupode profesionales del Grupo de Análisis de la UPRA. el trabajo de los usuarios de los integrantes    capas con respecto a una o varias zonas de interés o moldes y obtener las estadísticas de área de acuerdo con un campo definido. (http://www.upra.gov.co).
 
 
 ## Instalación
