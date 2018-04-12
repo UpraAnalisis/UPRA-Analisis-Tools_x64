@@ -23,7 +23,7 @@ Antes de instalar el Add-in Upra_Analisis_Tools_x64 verifique lo siguiente:
   <img src="Images\ruta_python.png">
 </p>
 
-+ En caso de existir la carpeta que comienza por `ArcGISx64`, usted tendrá instalado el Geoprocesamiento en segundo plano (64 bits), en caso contrario comuníquese con el administrador para realizar la respectiva instalación.
++ En caso de existir la carpeta que comienza por **ArcGISx64**, usted tendrá instalado el Geoprocesamiento en segundo plano (64 bits), en caso contrario comuníquese con el administrador para realizar la respectiva instalación.
 
 ## Instalación
 
@@ -31,7 +31,7 @@ El proceso de descarga e instalación es el siguiente:
 
 ### Descargar del AddIn:
 
-Para descargar el Add-in haga clic en el link de `Download ZIP` tal como lo muestra la siguiente imagen.
+Para descargar el Add-in haga clic en el link de **Download ZIP** tal como lo muestra la siguiente imagen.
 
 <p align="center">
   <img src="Images\Descarga.PNG">
@@ -42,21 +42,21 @@ Manual y automatizada.
 
 ### Instalación manual
 
-La forma manual consiste en copiar los archivos: `clipx64_aux.py`, `fillable_box.py`, `identityx64_aux.py` y `UPRA-Analisis-Tools_x64.esriaddin` en el directorio de Add-ins de arcgis tal y como se muestra en la siguiente imagen.
+La forma manual consiste en copiar los archivos: **clipx64_aux.py**, **fillable_box.py**, **identityx64_aux.py** y **UPRA-Analisis-Tools_x64.esriaddin** en el directorio de Add-ins de ArcGis tal y como se muestra en la siguiente imagen.
 
 <p align="center">
   <img src="Images\Copia_manual.png">
 </p>
 
-En el paso anterior se copiaron los archivos necesarios que componen el Add-in, sin embargo, es necesario instalar librerias de python auxiliares para su correcto funcionamiento. Para llevar a cabo esta tarea se deben ejecutar los archivos `get-pip.py`e `instalador_auxiliar.py`, en el respectivo orden empleando la versión de Python de 32 bits.
+En el paso anterior se copiaron los archivos necesarios que componen el Add-in, sin embargo, es necesario instalar librerías de python auxiliares para su correcto funcionamiento. Para llevar a cabo esta tarea se deben ejecutar los archivos **get-pip.py**e **instalador_auxiliar.py**, en el respectivo orden empleando la versión de Python de 32 bits.
 
-Para realizar la ejecución a 32 bits copie la ruta del ejecutable de 32 bits de Python de ArcGis en un bloc de notas seguido de un espacio, luego escriba la ruta del archivo `get-pip.py`, tal como lo indica la imagen.
+Para realizar la ejecución a 32 bits copie la ruta del ejecutable de 32 bits de Python de ArcGis en un bloc de notas seguido de un espacio, luego escriba la ruta del archivo **get-pip.py**, tal como lo indica la imagen.
 
 <p align="center">
   <img src="Images\ejecucion_getpip.png">
 </p>
 
-Posteriormente, copie el texto del bloc de notas, presione las teclas `Windows` `+` `E` y pegue el texto en la ventana de ejecución de la siguiente forma.
+Posteriormente, copie el texto del bloc de notas, presione las teclas **Windows** **+** **E** y pegue el texto en la ventana de ejecución de la siguiente forma.
 
 
 <p align="center">
@@ -64,7 +64,7 @@ Posteriormente, copie el texto del bloc de notas, presione las teclas `Windows` 
 </p>
 
 
-Para ejecutar el archivo de  `instalador_auxiliar.py` repita el procedimiento anterior.
+Para ejecutar el archivo de  **instalador_auxiliar.py** repita el procedimiento anterior.
 AL finalizar la ejecución del archivo de instalador_auxiliar deberá aparecer una ventana como la mostrada a continuación, indicando que el proceso ha finalizado con éxito.
 
 <p align="center">
@@ -73,7 +73,7 @@ AL finalizar la ejecución del archivo de instalador_auxiliar deberá aparecer u
 
 ### Instalación automatizada
 
-La forma automatizada consiste en ejecutar el instalador que viene por defecto en el Add-in. Para ello se debe ejecutar el archivo `Instalador_UPRA-Analisis-Tools_x64.py`.
+La forma automatizada consiste en ejecutar el instalador que viene por defecto en el Add-in. Para ello se debe ejecutar el archivo **Instalador_UPRA-Analisis-Tools_x64.py**.
 
 <p align="center">
   <img src="Images\ejecutable.png">
@@ -87,7 +87,7 @@ La forma automatizada consiste en ejecutar el instalador que viene por defecto e
 
 ### Configuración
 
- Si al iniciar ArcMap no encuentra el Add-In, debe configurar su visualización dentro de la barra de herramientas. Para ello, haga clic derecho sobre la barra de herramientas y seleccione la opción `customize`. Al hacerlo se activará el menú mostrado en la siguiente imagen en donde se debe seleccionar la barra de herramientas Upra_Análisis_Tools.
+ Si al iniciar ArcMap no encuentra el Add-In, debe configurar su visualización dentro de la barra de herramientas. Para ello, haga clic derecho sobre la barra de herramientas y seleccione la opción **customize**. Al hacerlo se activará el menú mostrado en la siguiente imagen en donde se debe seleccionar la barra de herramientas Upra_Análisis_Tools.
 
 <p align="center">
  <img src="/img/activar_menu.png">
@@ -95,7 +95,7 @@ La forma automatizada consiste en ejecutar el instalador que viene por defecto e
 
 ## Uso
 
-La barra de herramientas del Add-in Upra Análisis Tools x64 se compone de dos grupos de funcionalidades: `Herramientas para presentaciones` y `Herramientas para manipular layers`.
+La barra de herramientas del Add-in Upra Análisis Tools x64 se compone de dos grupos de funcionalidades: **Herramientas para presentaciones** y **Herramientas para manipular layers**.
 
 <p align="center">
  <img src="Images\barra_de_herramientas.png">
@@ -105,17 +105,17 @@ La barra de herramientas del Add-in Upra Análisis Tools x64 se compone de dos g
 Herramientas que preparan de forma masiva los insumos para construir presentaciones con la información resultante de los geoprocesos.
 
 
-+ #### Multicortes [(Ver ayuda)](Multicortes.md)
-+ #### ToPowerpoint [(Ver ayuda)](to_powerpoint.md)
++ #### Multicortes [(Ver ayuda)](help\Multicortes.md)
++ #### ToPowerpoint [(Ver ayuda)](help\to_powerpoint.md)
 
 
 ### Herramientas para manipular layers
 Herramientas que permiten consultar, filtrar y exportar de forma masiva las capas y tablas cargadas en un mxd.
 
-+ #### Área [(Ver ayuda)](Multicortes.md)
-+ #### Ruta [(Ver ayuda)](to_powerpoint.md)
-+ #### Coordenadas [(Ver ayuda)](Multicortes.md)
-+ #### Estadísticas [(Ver ayuda)](to_powerpoint.md)
-+ #### Tabla a Excel [(Ver ayuda)](Multicortes.md)
-+ #### Multi Query [(Ver ayuda)](to_powerpoint.md)
-+ #### Multi Export [(Ver ayuda)](to_powerpoint.md)
++ #### Área [(Ver ayuda)](help\Herramientas_layers.md)
++ #### Ruta [(Ver ayuda)](help\Herramientas_layers.md)
++ #### Coordenadas [(Ver ayuda)](help\Herramientas_layers.md)
++ #### Estadísticas [(Ver ayuda)](help\Herramientas_layers.md)
++ #### Tabla a Excel [(Ver ayuda)](help\Herramientas_layers.md)
++ #### Multi Query [(Ver ayuda)](help\Herramientas_layers.md)
++ #### Multi Export [(Ver ayuda)](help\Herramientas_layers.md)
