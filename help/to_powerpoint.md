@@ -61,7 +61,7 @@ Despues de seleccionar y definir los parámetros necesarios, se puede observar q
 
 ### Resultados
 
-Se genera un achivo powerpoint con las imagenes exportadas y el nombre de cada una de ellas, el cual corresponde al nombre de la capa.
+Se genera un achivo Powerpoint con las imagenes exportadas y el nombre de cada una de ellas, el cual corresponde al nombre de la capa.
 En este archivo ya se puede adicionar y/o modificar los elementos que requiera.
 
 <p align="center">
