@@ -1,4 +1,4 @@
-# <center>Multicortes </center>
+# Multicortes
 
 <p align="center">
  <img style width="40%" src="..\Images\logo_multicortes.gif" >
@@ -22,7 +22,7 @@ La funcionalidad de Multicortes permite realizar el corte y las estadísticas de
 <br></br></p>
 
 
-##Configurar el mxd
+## Configurar el mxd
 Para emplear esta funcionalidad es necesario crear tres dataframes, dos deben llevar de forma obligatoria los nombres : **moldes** y **capas** respectivamente y el tercero puede tener cualquier nombre. A continuación una imagen que ilustra lo descrito.
 
 <p align="center">
@@ -43,7 +43,7 @@ Recuerde mantener pausada la visualización para mejorar el rendimiento y la est
  <img src="..\Images\pausar_dibujado.png">
 </p>
 
-##Cargar Capas Necesarias
+## Cargar Capas Necesarias
 
 Las capas necesarias para la operación de este Add-in son de dos (2) tipos y deben estar separadas en diferentes dataframes de la siguiente forma:
 
@@ -75,7 +75,7 @@ El mxd totalmente configurado y dispuesto para su ejecución debe lucir de la si
 </p>
 
 
-##Realizar los cortes
+## Realizar los cortes
 
 Una vez se construyan los dataframes y se adicionen las capas necesarias con su respectivo campo de estadísticas se procederá a realizar el corte. Para hacerlo haga clic sobre el ícono de multicortes localizado en la barra de herramientas en el menú de presentaciones.
 
@@ -98,7 +98,7 @@ Si se selecciona la opción nada, la herramienta finaliza la ejecución y muestr
 </p>
 
 
-###Corte y estadísticas
+### Corte y estadísticas
 
 Si se selecciona esta opción automáticamente se despliega una nueva ventana preguntando qué tipo de operación de corte se efectuará.
 
@@ -147,7 +147,7 @@ A continuación se detallan los resultados almacenados dentro del folder de sali
 </p>
 
 
-###Solo Corte
+### Solo Corte
 
 Si selecciona esta opción solo se realizaran los cortes de las capas, por lo tanto solo se obtendrán Feature Class.
 
