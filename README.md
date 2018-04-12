@@ -105,17 +105,17 @@ La barra de herramientas del Add-in Upra Análisis Tools x64 se compone de dos g
 Herramientas que preparan de forma masiva los insumos para construir presentaciones con la información resultante de los geoprocesos.
 
 
-+ #### Multicortes [(Ver ayuda)](help\Multicortes.md)
-+ #### ToPowerpoint [(Ver ayuda)](help\to_powerpoint.md)
++ #### Multicortes [(Ver ayuda)](..\help\Multicortes.md)
++ #### ToPowerpoint [(Ver ayuda)](..\help\to_powerpoint.md)
 
 
 ### Herramientas para manipular layers
 Herramientas que permiten consultar, filtrar y exportar de forma masiva las capas y tablas cargadas en un mxd.
 
-+ #### Área [(Ver ayuda)](help\Herramientas_layers.md#%C3%81rea)
-+ #### Ruta [(Ver ayuda)](help\Herramientas_layers.md#ruta)
-+ #### Coordenadas [(Ver ayuda)](help\Herramientas_layers.md#coordenadas)
-+ #### Estadísticas [(Ver ayuda)](help\Herramientas_layers.md#estad%C3%ADsticas)
-+ #### Tabla a Excel [(Ver ayuda)](help\Herramientas_layers.md #tabla-a-excel)
-+ #### Multi Query [(Ver ayuda)](help\Herramientas_layers.md#multi-query)
-+ #### Multi Export [(Ver ayuda)](help\Herramientas_layers.md#mdmulti-export)
++ #### Área [(Ver ayuda)](..\help\Herramientas_layers.md#%C3%81rea)
++ #### Ruta [(Ver ayuda)](..\help\Herramientas_layers.md#ruta)
++ #### Coordenadas [(Ver ayuda)](..\help\Herramientas_layers.md#coordenadas)
++ #### Estadísticas [(Ver ayuda)](..\help\Herramientas_layers.md#estad%C3%ADsticas)
++ #### Tabla a Excel [(Ver ayuda)](..\help\Herramientas_layers.md #tabla-a-excel)
++ #### Multi Query [(Ver ayuda)](..\help\Herramientas_layers.md#multi-query)
++ #### Multi Export [(Ver ayuda)](..\help\Herramientas_layers.md#mdmulti-export)
