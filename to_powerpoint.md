@@ -1,4 +1,4 @@
-# <center> to_powerpoint </center>
+ # <center>to_powerpoint </center>
 
 <p align="center">
   <img src="/Images/topowerpoint.png">
@@ -18,6 +18,52 @@ Seleccione las capas que desea exportar
   <img src="/Images/tpseleccion.png">
 </p>
 
-**Nota:** Antes de empezar a exportar los mapas consulte la ruta una presentación de powerpoint que servirá de base para la nueva presentación que se creeará con los archivos del dataframe.
 
 Seleccione la herramiemta to_powerpoint, la cual se encuentra en la barra de herramientas de **Upra_Análisis_Tools/presentaciones/to_powerpoint**
+
+* Seleccione el archivo powerpoint que servirá de base para la creación de la nueva presentación. Las imagenes exportadas se agregaran despues de la última diapositiva del archivo seleccionado.
+
+<p align="center">
+    <img src="/Images/tppresentacionbase.png">
+</p>
+
+Defina nombre y ruta de salida de la presentación que se va a crear con las imágenes exportadas y haga click en guardar.
+
+<p align="center">
+    <img src="Images\tpnombrepresentacion.PNG">
+</p>
+
+Seleccione la carpeta en la cual quedaran almacenados los archivos exportados.
+
+<p align="center">
+    <img src="Images\tpcarpetaimagenes.png">
+</p>
+
+Defina el formato de salida en el cual necesita los elementos exportados, aparecerá una pantalla con tres opciones **.PNG, .JPG y .PDF.**
+
+<p align="center">
+    <img src="Images\tpformato.png">
+</p>
+
+Finalmente, aparece una ventana emergente en la cual puede definir la resolución de salida de las imágenes. El valor por defecto es de 300 dpi.
+
+<p align="center">
+    <img src="Images\tpresolucion.png">
+</p>
+
+### Exportando imágenes
+
+Despues de seleccionar y definir los parámetros necesarios, se puede observar que se activan de forma individual cada una de las capas seleccionadas y se exporta al formato requerido.
+
+<p align="center">
+    <img src="Images\tpexportando.png">
+</p>
+
+### Resultados
+
+Se genera un achivo powerpoint con las imagenes exportadas y el nombre de cada una de ellas, el cual corresponde al nombre de la capa. @cr
+En este archivo ya se puede adicionar y/o modificar los elementos que requiera.
+
+<p align="center">
+    <img src="Images\tpresultadoPresentacionImagenes.png">
+</p>
