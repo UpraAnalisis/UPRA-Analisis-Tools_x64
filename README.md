@@ -105,8 +105,8 @@ La barra de herramientas del Add-in Upra Análisis Tools x64 se compone de dos g
 Herramientas que preparan de forma masiva los insumos para construir presentaciones con la información resultante de los geoprocesos.
 
 
-+ #### Multicortes [(Ver ayuda)](..\help\Multicortes.md)
-+ #### ToPowerpoint [(Ver ayuda)](..\help\to_powerpoint.md)
++ #### Multicortes [(Ver ayuda)](https://github.com/UpraAnalisis/UPRA-Analisis-Tools_x64/blob/master/help/Multicortes.md#multicortes-)
++ #### ToPowerpoint [(Ver ayuda)](https://github.com/UpraAnalisis/UPRA-Analisis-Tools_x64/blob/master/help/to_powerpoint.md#to_powerpoint-)
 
 
 ### Herramientas para manipular layers
@@ -118,4 +118,4 @@ Herramientas que permiten consultar, filtrar y exportar de forma masiva las capa
 + #### Estadísticas [(Ver ayuda)](https://github.com/UpraAnalisis/UPRA-Analisis-Tools_x64/blob/master/help/Herramientas_layers.md#estad%C3%ADsticas)
 + #### Tabla a Excel [(Ver ayuda)](https://github.com/UpraAnalisis/UPRA-Analisis-Tools_x64/blob/master/help/Herramientas_layers.md#tabla-a-excel)
 + #### Multi Query [(Ver ayuda)](https://github.com/UpraAnalisis/UPRA-Analisis-Tools_x64/blob/master/help/Herramientas_layers.md#multi-query)
-+ #### Multi Export [(Ver ayuda)](https://github.com/UpraAnalisis/UPRA-Analisis-Tools_x64/blob/master/help/Herramientas_layers.md#mdmulti-export)
++ #### Multi Export [(Ver ayuda)](https://github.com/UpraAnalisis/UPRA-Analisis-Tools_x64/blob/master/help/Herramientas_layers.md#multi-export)
