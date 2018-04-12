@@ -29,12 +29,12 @@ Antes de instalar el Add-in Upra_Analisis_Tools_x64 verifique lo siguiente:
 
 El proceso de descarga e instalación es el siguiente:
 
-### Descargar del AddIn:
+### Descarga del AddIn:
 
 Para descargar el Add-in haga clic en el link de **Download ZIP** tal como lo muestra la siguiente imagen.
 
 <p align="center">
-  <img src="Images\Descarga.PNG">
+  <img src="..\Images\Descarga.PNG">
 </p>
 
 La instalación puede realizarse de dos formas:

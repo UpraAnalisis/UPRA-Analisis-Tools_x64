@@ -346,15 +346,21 @@ class GetUserInput(object):
         self.selection = self.listbox.selection_get()
         capas= self.selection.split("\n")
         print capas
-        for capa in capas:
-            if "--" in capa:
-                    nombre_capa,campo=capa.split("--")
-                    arcpy.TableToExcel_conversion(capa, "%s//%s.xls"%(ruta,nombre_capa))
-            else:
-                arcpy.TableToExcel_conversion(capa, "%s//%s.xls"%(ruta,capa))
-        self.master.destroy()
+        if len(capas)>0:
+            for capa in capas:
+                if "--" in capa:
+                        nombre_capa,campo=capa.split("--")
+                        arcpy.TableToExcel_conversion(capa, "%s//%s.xls"%(ruta,nombre_capa))
+                else:
+                    arcpy.TableToExcel_conversion(capa, "%s//%s.xls"%(ruta,capa))
+            self.master.destroy()
+        else:
+            pythonaddins.MessageBox("Por favor Seleccione una tabla para exportar", "Alerta")
 
     def getInput(self):
+        capas= self.selection.split("\n")
+        if len(capas)<0:
+            pythonaddins.MessageBox("Por favor Seleccione una tabla para exportar", "Alerta")
         return self.selection
 
 
@@ -569,7 +575,7 @@ def mExport():
     print("proceso Completado en {:0>2} H {:0>2} M {:05.2f} S.".format(int(hours),int(minutes),seconds))
 
 def multiQuery():
-    expresion = easygui.textbox(msg="Escriba el query",title="Definicion de Query")
+    expresion = easygui.textbox(msg="Escriba el query",title="Definición de Query")
     mxd = arcpy.mapping.MapDocument("CURRENT")
     layers = pythonaddins.GetSelectedTOCLayerOrDataFrame()
     if len(layers) >1:
@@ -974,4 +980,4 @@ class HelpButton(object):
         self.checked = False
     def onClick(self):
         global subprocess
-        subprocess.Popen("start chrome /new-tab https://github.com/UpraAnalisis/UPRA-Analisis-Tools_x64#upra-analisis-tools-x64",shell = True)
+        subprocess.Popen(u"start chrome /new-tab https://github.com/UpraAnalisis/UPRA-Analisis-Tools_x64#upra-análisis-tools-x64".decode('utf-8'),shell = True)
