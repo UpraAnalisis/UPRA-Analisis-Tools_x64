@@ -980,4 +980,4 @@ class HelpButton(object):
         self.checked = False
     def onClick(self):
         global subprocess
-        subprocess.Popen(u"start chrome /new-tab https://github.com/UpraAnalisis/UPRA-Analisis-Tools_x64#upra-análisis-tools-x64".decode('utf-8'),shell = True)
+        subprocess.Popen(u"start chrome /new-tab https://github.com/UpraAnalisis/UPRA-Analisis-Tools_x64#herramientas-para-presentaciones".decode('utf-8'),shell = True)
