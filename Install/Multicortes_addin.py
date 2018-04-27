@@ -779,7 +779,7 @@ class ButtonMulticortes(object):
                             capax1 = cambia_caracteres(capax)
                             rfinal1 = cambia_caracteres(rfinal.encode("utf8"))
                             nombre_tabla1 = cambia_caracteres(nombre_tabla)
-                            comando=r"start %s %s %s %s %s %s %s"%(verPython64,script_identity,capax1,moldex1,"ALL",rfinal1,nombre_tabla1)
+                            comando=r"start %s %s %s %s %s %s %s"%(verPython64,script_identity,moldex1,capax1,"ALL",rfinal1,nombre_tabla1)
                             ff=subprocess.Popen(comando,stdin=None,stdout=subprocess.PIPE,shell=True,env=dict(os.environ, PYTHONHOME=verPythonDir))
                             astdout, astderr = ff.communicate()
                             arcpy.MakeFeatureLayer_management(rfinal+"\\"+nombre_tabla,nombre_tabla+"_"+molde.name)
